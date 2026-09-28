@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ja" data-lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>夜話 — Night Tales</title>
+  <meta name="description" content="縦書きで一話ずつ読み進める、創作怪談アプリ。 / Original ghost stories, read a few lines at a time.">
+  <meta name="theme-color" content="#012739">
+  <meta property="og:title" content="夜話 — Night Tales">
+  <meta property="og:description" content="眠る前に、ひとつ。 / One story before you sleep.">
+  <meta property="og:image" content="https://hideto0926.github.io/nighttales/assets/og.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hideto0926.github.io/nighttales/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    // 言語：?lang= → 保存値 → ブラウザ設定
+    (function () {
+      var q = new URLSearchParams(location.search).get('lang');
+      var saved = null;
+      try { saved = localStorage.getItem('lang'); } catch (e) {}
+      var lang = q || saved || ((navigator.language || 'en').toLowerCase().indexOf('ja') === 0 ? 'ja' : 'en');
+      if (lang !== 'ja') lang = 'en';
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.setAttribute('lang', lang);
+    })();
+  </script>
+</head>
+<body>
+  <canvas id="scene" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a class="brand" href="#top">
+      <img src="assets/favicon.png" alt="" width="28" height="28">
+      <span lang="ja">夜話</span><span lang="en">Night Tales</span>
+    </a>
+    <nav>
+      <a href="#stories"><span lang="ja">物語</span><span lang="en">Stories</span></a>
+      <a href="#howto"><span lang="ja">遊び方</span><span lang="en">How to</span></a>
+      <a href="privacy.html"><span lang="ja">プライバシー</span><span lang="en">Privacy</span></a>
+      <button class="lang-toggle" type="button" aria-label="Language">
+        <span class="opt" data-set="ja">日本語</span><span class="sep">/</span><span class="opt" data-set="en">EN</span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-inner">
+        <h1 class="title">
+          <span lang="ja">夜話</span>
+          <span lang="en">Night Tales</span>
+        </h1>
+        <p class="tagline">
+          <span lang="ja">眠る前に、ひとつ。</span>
+          <span lang="en">One story before you sleep.</span>
+        </p>
+        <p class="lead">
+          <span lang="ja">縦書きで一話ずつ読み進める、創作怪談。</span>
+          <span lang="en">Original ghost stories, read a few lines at a time.</span>
+        </p>
+        <a class="store" href="#" aria-disabled="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.1-1.2 2.9-2.4.9-1.4 1.3-2.7 1.3-2.8-.1 0-2.4-.9-2.4-3.9zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>
+          <span><small lang="ja">まもなく配信</small><small lang="en">Coming soon on the</small><b>App Store</b></span>
+        </a>
+      </div>
+      <div class="scroll-cue" aria-hidden="true"><span></span></div>
+    </section>
+
+    <section class="about reveal">
+      <div class="about-text">
+        <h2>
+          <span lang="ja">部屋の灯りを消して、<br>ひとりでお読みください。</span>
+          <span lang="en">Turn off the lights.<br>Read alone.</span>
+        </h2>
+        <p lang="ja">物語は、縦書きで数行ずつ現れます。タップするたびに、ゆっくりと先へ。五つの話は、どれも夜にまつわる話です。</p>
+        <p lang="en">Each story appears a few lines at a time. With every tap, it moves slowly forward. All five tales take place at night.</p>
+        <p lang="ja">眠る前に、ひとつずつどうぞ。</p>
+        <p lang="en">One before bed, perhaps.</p>
+      </div>
+      <figure class="about-shot">
+        <img lang="ja" src="assets/shots/ja_2menu.jpg" alt="五つの怪談が並ぶアプリのメニュー画面" loading="lazy" width="540" height="1173">
+        <img lang="en" src="assets/shots/en_2menu.jpg" alt="App menu listing five ghost stories" loading="lazy" width="540" height="1173">
+      </figure>
+    </section>
+
+    <section id="stories" class="stories reveal">
+      <h2 class="section-title"><span lang="ja">五つの怪談</span><span lang="en">Five Tales</span></h2>
+      <ol class="story-list">
+        <li>
+          <span class="no"><span lang="ja">第一話</span><span lang="en">Tale 1</span></span>
+          <h3><span lang="ja">黒い画面</span><span lang="en">The Black Screen</span></h3>
+          <p><span lang="ja">画面が暗くなるたび、部屋の奥の白いものが、少しずつ近づいてくる。</span><span lang="en">Every time the screen goes dark, the white thing at the back of the room comes a little closer.</span></p>
+        </li>
+        <li>
+          <span class="no"><span lang="ja">第二話</span><span lang="en">Tale 2</span></span>
+          <h3><span lang="ja">肩が重い</span><span lang="en">Heavy Shoulders</span></h3>
+          <p><span lang="ja">「肩が重いときはね、誰かが乗っているんだよ」祖母の言葉を、冗談だと思っていた。</span><span lang="en">“When your shoulders feel heavy, someone is riding on them.” I thought Grandma was joking.</span></p>
+        </li>
+        <li>
+          <span class="no"><span lang="ja">第三話</span><span lang="en">Tale 3</span></span>
+          <h3><span lang="ja">ひとつ多い</span><span lang="en">One Too Many</span></h3>
+          <p><span lang="ja">廃校で撮った四人の写真。数えるたびに、顔がひとつ、多い。</span><span lang="en">A photo of four friends at an abandoned school. Every time we count, there is one face too many.</span></p>
+        </li>
+        <li>
+          <span class="no"><span lang="ja">第四話</span><span lang="en">Tale 4</span></span>
+          <h3><span lang="ja">背景</span><span lang="en">Background</span></h3>
+          <p><span lang="ja">ビデオ会議の小窓。同僚たちが見ているのは、私の顔の、すこし横。</span><span lang="en">A video call. My coworkers keep looking just beside my face.</span></p>
+        </li>
+        <li>
+          <span class="no"><span lang="ja">第五話</span><span lang="en">Tale 5</span></span>
+          <h3><span lang="ja">かくれんぼ</span><span lang="en">Hide and Seek</span></h3>
+          <p><span lang="ja">「もういいかい」夕暮れの神社で、返事はひとつ多く聞こえた。</span><span lang="en">“Ready or not?” At the shrine at dusk, one voice too many answered.</span></p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="gallery reveal" aria-label="Screenshots">
+      <div class="shots">
+        <img lang="ja" src="assets/shots/ja_1splash.jpg" alt="" loading="lazy" width="540" height="1173">
+        <img lang="ja" src="assets/shots/ja_4read.jpg" alt="" loading="lazy" width="540" height="1173">
+        <img lang="ja" src="assets/shots/ja_3intro.jpg" alt="" loading="lazy" width="540" height="1173">
+        <img lang="ja" src="assets/shots/ja_5read.jpg" alt="" loading="lazy" width="540" height="1173">
+        <img lang="en" src="assets/shots/en_1splash.jpg" alt="" loading="lazy" width="540" height="1173">
+        <img lang="en" src="assets/shots/en_4read.jpg" alt="" loading="lazy" width="540" height="1173">
+        <img lang="en" src="assets/shots/en_3intro.jpg" alt="" loading="lazy" width="540" height="1173">
+        <img lang="en" src="assets/shots/en_5read.jpg" alt="" loading="lazy" width="540" height="1173">
+      </div>
+    </section>
+
+    <section id="howto" class="howto reveal">
+      <h2 class="section-title"><span lang="ja">遊び方</span><span lang="en">How to Play</span></h2>
+      <div class="steps">
+        <div class="step">
+          <span class="num">01</span>
+          <h3><span lang="ja">部屋を暗くする</span><span lang="en">Dim the room</span></h3>
+          <p><span lang="ja">灯りを落とすほど、物語は深くなります。</span><span lang="en">The darker the room, the deeper the story.</span></p>
+        </div>
+        <div class="step">
+          <span class="num">02</span>
+          <h3><span lang="ja">イヤホンをつける</span><span lang="en">Put on earphones</span></h3>
+          <p><span lang="ja">音も物語の一部です。音量は控えめに。</span><span lang="en">Sound is part of the story. Keep the volume low.</span></p>
+        </div>
+        <div class="step">
+          <span class="num">03</span>
+          <h3><span lang="ja">タップして読み進める</span><span lang="en">Tap to read on</span></h3>
+          <p><span lang="ja">一度のタップで数行ずつ。急がず、ゆっくりと。</span><span lang="en">A few lines per tap. No need to hurry.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="notice reveal">
+      <h2 class="section-title"><span lang="ja">ご利用の前に</span><span lang="en">Before You Begin</span></h2>
+      <ul>
+        <li><span lang="ja">体験中、予告なく大きな音や強い振動が発生することがあります。</span><span lang="en">Loud sounds and strong vibrations may occur without warning.</span></li>
+        <li><span lang="ja">心臓や血圧に持病のある方、妊娠中の方、12歳未満の方はご利用をお控えください。</span><span lang="en">Not recommended for people with heart or blood pressure conditions, pregnant people, or children under 12.</span></li>
+        <li><span lang="ja">歩行中・運転中など、驚いた際に危険が生じうる状況では使用しないでください。</span><span lang="en">Never use while walking, driving, or anywhere being startled could be dangerous.</span></li>
+        <li><span lang="ja">カメラ映像は端末内でのみ処理され、保存・送信されることはありません。</span><span lang="en">Camera video is processed only on your device and is never saved or sent.</span></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <img src="assets/favicon.png" alt="" width="36" height="36">
+    <p class="foot-title"><span lang="ja">夜話</span><span lang="en">Night Tales</span></p>
+    <p class="foot-links">
+      <a href="privacy.html"><span lang="ja">プライバシーポリシー</span><span lang="en">Privacy Policy</span></a>
+      <a href="https://hideto0926.github.io"><span lang="ja">開発者</span><span lang="en">Developer</span></a>
+      <a href="mailto:hideto0926@gmail.com"><span lang="ja">お問い合わせ</span><span lang="en">Contact</span></a>
+    </p>
+    <p class="copy">© <span class="year">2026</span> Night Tales</p>
+  </footer>
+
+  <script type="importmap">
+    { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js" } }
+  </script>
+  <script type="module" src="js/main.js"></script>
+  <script src="js/lang.js"></script>
+</body>
+</html>
